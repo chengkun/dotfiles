@@ -71,7 +71,16 @@ directory_name() {
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
+who_name(){
+  echo "%{$fg_bold[yellow]%}$(whoami)%{$reset_color%} "
+}
+
+node_ver(){
+  echo "%{$fg_blod[green]%}$(node -v)%{$reset_color%} "
+}
+
+# export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$(who_name)in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
